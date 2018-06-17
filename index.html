@@ -1,0 +1,385 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="author" content="lisequesnel"/>
+
+		<title>Cypress, (R)evolution ?</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<link rel="stylesheet" href="./styles.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-background-image="images/revolution.jpg">
+					<img src="images/cypress.png" />
+					<h1 class="caps">
+						<span class="bold">(r)evolution?</span>
+					</h1>
+				</section>
+				<section data-background-image="images/question.jpg">
+					<h1 style="margin-left: 250px; margin-top: 150px">
+						<img width="15%" style="margin-bottom: -5px" src="images/selenium.png" />
+						<span class="bold">Selenium</span>
+					</h1>
+					<div style="position: absolute; right: -150px; bottom: -150px">What is it, exactly?</div>
+					<div style="position: absolute; right: -50px; bottom: -250px">How does it work?</div>
+					<aside class="notes">
+						Protractor, Nightwatch, webdriver.io sont construits par dessus selenium
+					</aside>
+				</section>
+				<section data-background-color="#D7DBDC">
+					<h2>
+						<span class="bold">📦 Selenium Architecture</span>
+					</h2>
+					<img style="margin: 120px 0" src="images/selenium_architecture.png" />
+					<aside class="notes">
+						<ul>
+							<li>Wrapper optionnel</li>
+							<li>Server optionel: démarre et run plus vite les tests (server utilisé pour manager plusieurs browsers)</li>
+							<li>WebDriver wire Protocol: standardisé par W3C</li>
+							<li>Browser</li>
+					</aside>
+				</section>
+				<section data-background-color="#D7DBDC">
+					<h2>
+						<span class="bold">🛠️ 3rd party tools</span>
+					</h2>
+					<img style="margin-top: 80px" src="images/testing_library.png" />
+					<aside class="notes">
+						<ul>
+							<li>retrouve Wrapper</li>
+							<li>ajout d'outils supplémentaires, selon utilisation</li>
+							<li>bien d'autres</li>
+						</ul>
+					</aside>
+				</section>
+				<section data-background-image="images/problem.jpg">
+					<h2>
+						<span style="margin-right: 100px" class="bold">☠️ Problems</span>
+					</h2>
+					<ul style="margin: 80px 0" >
+						<li>Complicated to setup</li>
+						<li>Hard to debug</li>
+						<li>Slow</li>
+					</ul>
+					<aside class="notes">
+						<ul>
+							<li>Setup: besoin d'outils complémentaires</li>
+							<li>Debug: Flaky tests</li>
+							<li>Slow: peu performant, même en local passe par le réseau</li>
+						</ul>
+					</aside>
+				</section>
+				<section data-background-color="#D7DBDC">
+					<img width="80%" src="images/painful.gif" />
+				</section>
+				<section data-background-image="images/evolution.jpg">
+					<img width="80%" src="images/cypress.png" />
+					<blockquote style="color: #49494C">"	The web has evolved. Finally, testing has too."</blockquote>
+					<p class="spacer"/>
+					<aside class="notes">
+						Developer friendly: Easy to setup, write tests and manage
+					</aside>
+				</section>
+				<section data-background-image="images/all-in-one.jpg">
+					<h2>
+						<span class="bold" style="color: #49494C">All-in-one testing framework</span>
+					</h2>
+					<img width="30%" style="position: absolute; right:-100px" src="images/cypress_uses.png" />
+					<ul style="color: #49494C; margin-top: 100px">
+						<li>Built on top of Mocha</li>
+						<li>Uses Chai for asssertions</li>
+						<li>Sinon brings mocks, stubs and spies</li>
+					</ul>
+					<aside class="notes">
+						Mocha apporte la structure de test et le runner
+					</aside>
+				</section>
+				<section data-background-color="#D7DBDC">
+					<h2>
+						<span class="bold">⚙️ Setup</span>
+					</h2>
+					<img width="100%" src="images/cypress_setup.gif" />
+					<aside class="notes">
+						3 minutes
+					</aside>
+				</section>
+				<section data-background-image="images/writing.jpg">
+					<h2>
+						<span class="bold">WRITING TESTS</span>
+					</h2>
+					<ul style="margin-top: 350px">
+						<li>Uses tools that already exists and familiar with</li>
+						<li>Easy to read and understand</li>
+						<li>Unit tests, integration tests, e2e tests</li>
+					</ul>
+					<aside class="notes">
+						<ul>
+							<li>Mocha, Chai, Sinon, JQuery pour selecteurs CSS</li>
+							<li>/!\ tests en champignons: stubber et mocker le back ++</li>
+							<li>seulement qq tests e2e pour tester la stack réelle car moins performant (on sort du browser donc perf)</li>
+						</ul>
+						Demo
+					</aside>
+				</section>
+				<section data-background-image="images/run.jpg">
+					<h2>
+						<span class="bold">RUNNING</span>
+					</h2>
+					<ul style="margin-top: 350px">
+						<li>Runs as fast as the browser can render content</li>
+						<li>Automatic waiting</li>
+						<li>Reloads whenever tests are updated</li>
+					</ul>
+					<aside class="notes">
+					<ul>
+						<li>auto wait : Never add waits or sleeps to your tests. it automatically waits for commands and assertions before moving on.</li>
+					</ul>
+					Demo
+					</aside>
+				</section>
+				<section data-background-image="images/debug.jpg">
+					<h2>
+						<span class="bold">DEBUGGING</span>
+					</h2>
+					<ul style="margin-top: 100px">
+						<li>Readable error messages</li>
+						<li>Time travel</li>
+						<li>Access to developer tool</li>
+						<li>Screenshots and videos</li>
+					</ul>
+					<aside class="notes">
+						<li>time travel: demo</li>
+						<li>devTool: bloqué avec selenium</li>
+						<li>videos for headless mode</li>
+					</ul>
+					</aside>
+				</section>
+				<section data-background-color="#D7DBDC">
+					<img width="80%" src="images/wonderful.jpg" />
+					<aside class="notes">
+					</aside>
+				</section>
+				<section data-background-color="#ffffff">
+					<div>But, how does it work?</div>
+					<img width="70%" src="images/thinking.jpg" />
+					<aside class="notes">
+					</aside>
+				</section>
+				<section data-background-color="#ffffff">
+					<h2>
+						<span class="bold">📦 Cypress Architecture</span>
+					</h2>
+					<img width="100%" src="images/cypress_architecture.png" />
+					<aside class="notes">
+						<ul>
+							<li>tourne partiellement ds browser et partiellement ds Node.JS</li>
+							<li>desktop gui: interface de managment</li>
+							<li>launcher lance le browser</li>
+							<li>driver execute les tests donne ses directives au runner</li>
+							<li>runner affiche l'app et manage les communications</li>
+							<li>extension sert à prendre des screenshots par ex</li>
+							<li>reporter affiche les resultats</li>
+						</ul>
+					</aside>
+				</section>
+				<section data-background-image="images/trade_off.jpg">
+					<h2>
+						<span class="bold">Trade-off</span>
+					</h2>
+					<ul>
+						<li>only JavaScript support</li>
+						<li>no multi-tab or multi-window support</li>
+						<li style="margin-right: 30%">doing things outside of the browser may take a little extra work</li>
+						<li style="margin-right: 40%">test can visit only one superdomain<small>(http://zenika.com, https://www.jobs.zenika.com)</small></li>
+					</ul>
+					<aside class="notes">
+						Compromis
+						JS: CY tourne dans le browser, tests st évalués dedans aussi,
+						multi: ce serait tester le comportement natif de browser
+						outside: comme seeding ou setup DB
+					</aside>
+				</section>
+				<section data-background-image="images/roadmap.jpg">
+					<h2>
+						<span class="bold">🗺️ Roadmap</span>
+					</h2>
+					<span>3.0.1 released on 5/30/2018</span>
+						<ul style="margin-top: 50px">
+							<li>Cross-browser support: Firefox first</li>
+							<li>Native events: file upload and download, keyboard events, mobile events</li>
+							<li>Improving Unit Tests performance</li>
+							<li>Chrome headless support</li>
+						</ul>
+					<aside class="notes">
+						<ul>
+							<li>1: chrome, chromium, canary (variant of chrome) are supported, and electron since it's based on chromium (headless)</li>
+							<li>3: UT syntax already here but it does not need cookies, local storage, etc : CPU waste</li>
+							<li>4: complicated because chrome headless disables extensions which prevents Cypress from working</li>
+						</ul>
+					</aside>
+				</section>
+				<section data-background-image="images/deployment.jpg">
+					<h2>
+						<span class="bold">CI/CD</span>
+					</h2>
+					<ul style="margin-top: 100px; margin-bottom: 400px;">
+						<li>all CI providers supported</li>
+						<li>headless only for electron</li>
+						<li>several Docker images availables</li>
+					</ul>
+					<aside class="notes">
+					</aside>
+				</section>
+				<section data-background-color="#ffffff">
+					<img width="50%" src="images/bored.jpg" />
+					<aside class="notes">
+						PO pourra toujours écrire en Gherkin
+					</aside>
+				</section>
+				<section data-background-color="#282C34">
+					<h2>
+						<img width="5%" style="margin-bottom: -10px" src="images/cucumber_small.png" />
+						<span class="bold">Cucumber</span>
+					</h2>
+					<img width="70%" src="images/gherkin.png" />
+					<aside class="notes">
+						<ul>
+							<li>Plugins: cypress-cucumber-preprocessor, typescript, eslint, etc</li>
+						</ul>
+						Demo
+					</aside>
+				</section>
+				<section data-background-image="images/battle.jpg">
+					<h2>
+						<span class="bold">💣 The final battle</span>
+					</h2>
+					<table>
+						<thead>
+							<tr>
+								<th style="width: 230px"></th>
+								<th style="width: 200px"><img width="15%" style="margin-bottom: -5px" src="images/cypress_small.png" />Cypress</th>
+								<th style="width: 200px"><img width="15%" style="margin-bottom: -5px" src="images/selenium.png" />Selenium</th>
+							</tr>
+						</thead>
+						<tbody style="font-size: 30px">
+							<tr>
+								<td>Speed</td>
+								<td>👍</td>
+								<td>✔️</td>
+							</tr>
+							<tr>
+								<td>Reliable</td>
+								<td>👍</td>
+								<td>✔️</td>
+							</tr>
+							<tr>
+								<td>Remote execution</td>
+								<td>❌</td>
+								<td>👍👍</td>
+							</tr>
+							<tr>
+								<td>Parallel execution</td>
+								<td>✔️</td>
+								<td>👍</td>
+							</tr>
+							<tr>
+								<td>Documentation</td>
+								<td>👍</td>
+								<td>✔️</td>
+							</tr>
+							<tr>
+								<td>Community</td>
+								<td>✔️</td>
+								<td>👍👍</td>
+							</tr>
+							<tr>
+								<td>Cross-browser</td>
+								<td>❌</td>
+								<td>👍</td>
+							</tr>
+							<tr>
+								<td>Dashboard</td>
+								<td>public 👍</br> private 💶</td>
+								<td>❌</td>
+							</tr>
+						</tbody>
+					</table>
+					<aside class="notes">
+						<ul>
+							<li>speed: réseau => delay => lent</li>
+							<li>reliable: wait for element à la mano</li>
+							<li>remote: selenium est fait pour ça</li>
+							<li>parallel: utiliser un outil externe comme puppeteer</li>
+							<li>documentation: doc cypress est top</li>
+							<li>community: selenium est mature, cypress non: tous les problèmes rencontrés ne sont pas couverts (mais gitter)</li>
+							<li>cross-browser: Firefox on its way</li>
+							<li>dashboard: management des tests encore plus simple</li>
+						</ul>
+					</aside>
+				</section>
+				<section data-background-image="images/others.jpg">
+					<h2>
+						<span class="bold">What about others?</span>
+					</h2>
+						<ul style="margin-top: 430px">
+							<li>TestCafé</li>
+							<li>Sahi</li>
+							<li>...</li>
+						</ul>
+					<aside class="notes">
+						et sûrement d'autres
+					</aside>
+				</section>
+				<section data-background-image="images/conclusion.jpg">
+					<h2>
+						<span class="bold">Conclusion</span>
+					</h2>
+						<ul>
+							<li>Enough of slow and flaky tests</li>
+							<li>With Cypress, testing is easy, fast and reliable</li>
+							<li>Developers can (finally) start loving it</li>
+							<li>But too young yet</li>
+						</ul>
+					<aside class="notes">
+						j'ai rencontré qq problèmes, pas de solutions car le problème n'a pas déjà été posé
+					</aside>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+		<script src="lib/js/text-animation.js"></script>
+	</body>
+</html>
