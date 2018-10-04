@@ -32,6 +32,23 @@
 						<span class="bold">(r)evolution?</span>
 					</h1>
 				</section>
+				<section data-background-image="images/start.jpeg">
+					<h2>
+						<span class="bold">Introduction</span>
+					</h2>
+					<img width="60%" style="position: absolute; left:-100px; margin-top: 80px" src="images/testing-pyramid.png" />
+					<h4 style="position: absolute; left: 500px; bottom: 180px">Why E2E Testing?</h4>
+					<ul style="margin-left: 400px; margin-top: 200px">
+						<li>ensure all sub-systems work properly together</li>
+						<li>prevent bugs and regression</li>
+					</ul>
+					<aside class="notes">
+						va simuler des interactions utilisateur sur un navigateur
+					</aside>
+				</section>
+				<section data-background-color="#D7DBDC">
+					<img width="50%" src="images/testing-doors.gif" />
+				</section>
 				<section data-background-image="images/question.jpg">
 					<h1 style="margin-left: 250px; margin-top: 150px">
 						<img width="15%" style="margin-bottom: -5px" src="images/selenium.png" />
@@ -43,7 +60,7 @@
 						Protractor, Nightwatch, webdriver.io sont construits par dessus selenium
 					</aside>
 				</section>
-				<section data-background-color="#D7DBDC">
+				<section data-background-color="#ffffff">
 					<h2>
 						<span class="bold">📦 Selenium Architecture</span>
 					</h2>
@@ -56,7 +73,7 @@
 							<li>Browser</li>
 					</aside>
 				</section>
-				<section data-background-color="#D7DBDC">
+				<section data-background-color="#ffffff">
 					<h2>
 						<span class="bold">🛠️ 3rd party tools</span>
 					</h2>
@@ -99,7 +116,7 @@
 				</section>
 				<section data-background-image="images/all-in-one.jpg">
 					<h2>
-						<span class="bold" style="color: #49494C">All-in-one testing framework</span>
+						<span class="bold" style="color: #49494C">🎁 All-in-one testing framework</span>
 					</h2>
 					<img width="30%" style="position: absolute; right:-100px" src="images/cypress_uses.png" />
 					<ul style="color: #49494C; margin-top: 100px">
@@ -124,7 +141,7 @@
 					<h2>
 						<span class="bold">WRITING TESTS</span>
 					</h2>
-					<ul style="margin-top: 350px">
+					<ul style="margin-top: 330px">
 						<li>Uses tools that already exists and familiar with</li>
 						<li>Easy to read and understand</li>
 						<li>Unit tests, integration tests, e2e tests</li>
@@ -140,9 +157,9 @@
 				</section>
 				<section data-background-image="images/run.jpg">
 					<h2>
-						<span class="bold">RUNNING</span>
+						<span class="bold" style="color: #49494C">RUNNING</span>
 					</h2>
-					<ul style="margin-top: 350px">
+					<ul style="margin-top: 350px; color: #49494C">
 						<li>Runs as fast as the browser can render content</li>
 						<li>Automatic waiting</li>
 						<li>Reloads whenever tests are updated</li>
@@ -156,9 +173,9 @@
 				</section>
 				<section data-background-image="images/debug.jpg">
 					<h2>
-						<span class="bold">DEBUGGING</span>
+						<span class="bold" style="color: #49494C">DEBUGGING</span>
 					</h2>
-					<ul style="margin-top: 100px">
+					<ul style="margin-top: 100px; color: #49494C">
 						<li>Readable error messages</li>
 						<li>Time travel</li>
 						<li>Access to developer tool</li>
@@ -167,6 +184,7 @@
 					<aside class="notes">
 						<li>time travel: demo</li>
 						<li>devTool: bloqué avec selenium</li>
+						<li>screenshots quand test fails</li>
 						<li>videos for headless mode</li>
 					</ul>
 					</aside>
@@ -201,13 +219,12 @@
 				</section>
 				<section data-background-image="images/trade_off.jpg">
 					<h2>
-						<span class="bold">Trade-off</span>
+						<span class="bold" style="color: #49494C">⚖️ Trade-off</span>
 					</h2>
-					<ul>
+					<ul style="color: #49494C">
 						<li>only JavaScript support</li>
 						<li>no multi-tab or multi-window support</li>
 						<li style="margin-right: 30%">doing things outside of the browser may take a little extra work</li>
-						<li style="margin-right: 40%">test can visit only one superdomain<small>(http://zenika.com, https://www.jobs.zenika.com)</small></li>
 					</ul>
 					<aside class="notes">
 						Compromis
@@ -222,31 +239,30 @@
 					<h2>
 						<span class="bold">🗺️ Roadmap</span>
 					</h2>
-					<span>3.0.1 released on 5/30/2018</span>
+					<span>3.1.0 released on 8/13/2018</span>
 						<ul style="margin-top: 50px">
-							<li>Cross-browser support: Firefox first</li>
+							<li>Cross-browser support</li>
 							<li>Native events: file upload and download, keyboard events, mobile events</li>
 							<li>Improving Unit Tests performance</li>
-							<li>Chrome headless support</li>
 						</ul>
 					<aside class="notes">
 						<ul>
 							<li>1: chrome, chromium, canary (variant of chrome) are supported, and electron since it's based on chromium (headless)</li>
 							<li>3: UT syntax already here but it does not need cookies, local storage, etc : CPU waste</li>
-							<li>4: complicated because chrome headless disables extensions which prevents Cypress from working</li>
 						</ul>
 					</aside>
 				</section>
 				<section data-background-image="images/deployment.jpg">
 					<h2>
-						<span class="bold">CI/CD</span>
+						<span class="bold" style="color: #49494C">🚀 CI/CD</span>
 					</h2>
-					<ul style="margin-top: 100px; margin-bottom: 400px;">
+					<ul style="margin-top: 100px; margin-bottom: 400px; color: #49494C">
 						<li>all CI providers supported</li>
 						<li>headless only for electron</li>
 						<li>several Docker images availables</li>
 					</ul>
 					<aside class="notes">
+						chrome headless is coming
 					</aside>
 				</section>
 				<section data-background-color="#ffffff">
@@ -270,26 +286,26 @@
 				</section>
 				<section data-background-image="images/battle.jpg">
 					<h2>
-						<span class="bold">💣 The final battle</span>
+						<span class="bold" style="color: #49494C">💣 The final battle</span>
 					</h2>
-					<table>
+					<table style="color: #49494C">
 						<thead>
 							<tr>
 								<th style="width: 230px"></th>
 								<th style="width: 200px"><img width="15%" style="margin-bottom: -5px" src="images/cypress_small.png" />Cypress</th>
-								<th style="width: 200px"><img width="15%" style="margin-bottom: -5px" src="images/selenium.png" />Selenium</th>
+								<th style="width: 200px"><img width="15%" style="margin-bottom: 2px" src="images/selenium.png" />Selenium</th>
 							</tr>
 						</thead>
 						<tbody style="font-size: 30px">
 							<tr>
 								<td>Speed</td>
+								<td>👍👍</td>
 								<td>👍</td>
-								<td>✔️</td>
 							</tr>
 							<tr>
 								<td>Reliable</td>
+								<td>👍👍</td>
 								<td>👍</td>
-								<td>✔️</td>
 							</tr>
 							<tr>
 								<td>Remote execution</td>
@@ -298,22 +314,22 @@
 							</tr>
 							<tr>
 								<td>Parallel execution</td>
-								<td>✔️</td>
 								<td>👍</td>
+								<td>👍👍</td>
 							</tr>
 							<tr>
 								<td>Documentation</td>
+								<td>👍👍</td>
 								<td>👍</td>
-								<td>✔️</td>
 							</tr>
 							<tr>
 								<td>Community</td>
-								<td>✔️</td>
+								<td>👍</td>
 								<td>👍👍</td>
 							</tr>
 							<tr>
 								<td>Cross-browser</td>
-								<td>❌</td>
+								<td>🕓</td>
 								<td>👍</td>
 							</tr>
 							<tr>
@@ -328,7 +344,7 @@
 							<li>speed: réseau => delay => lent</li>
 							<li>reliable: wait for element à la mano</li>
 							<li>remote: selenium est fait pour ça</li>
-							<li>parallel: utiliser un outil externe comme puppeteer</li>
+							<li>parallel: nouvelle feature CY v3</li>
 							<li>documentation: doc cypress est top</li>
 							<li>community: selenium est mature, cypress non: tous les problèmes rencontrés ne sont pas couverts (mais gitter)</li>
 							<li>cross-browser: Firefox on its way</li>
@@ -338,7 +354,7 @@
 				</section>
 				<section data-background-image="images/others.jpg">
 					<h2>
-						<span class="bold">What about others?</span>
+						<span class="bold">👽 What about others?</span>
 					</h2>
 						<ul style="margin-top: 430px">
 							<li>TestCafé</li>
@@ -351,9 +367,9 @@
 				</section>
 				<section data-background-image="images/conclusion.jpg">
 					<h2>
-						<span class="bold">Conclusion</span>
+						<span class="bold" style="color: #49494C">Conclusion</span>
 					</h2>
-						<ul>
+						<ul style="margin-top: 330px">
 							<li>Enough of slow and flaky tests</li>
 							<li>With Cypress, testing is easy, fast and reliable</li>
 							<li>Developers can (finally) start loving it</li>
